@@ -15,3 +15,27 @@ def draw_board(): #создаем функцию
         print ('|', board[0 + i * 3], '|', board[1 + i * 3], '|', board[2 + i * 3], '|')
         print ('-------------') #выводим на экран подчёркивание после каждой строки
 draw_board() #запускаем функцию, чтобы увидеть начальное игровое поле игры
+
+################### ВОПРОСЫ ПОЛЬЗОВАТЕЛЯМ О ВЫБОРЕ СИМВОЛА ДЛЯ ИГРЫ ####################################################
+
+u1_quest_symb = input('Type what symbol will play User 1 - (X or 0) ? :')  # получаем строку от пользователя
+
+while u1_quest_symb != 'X' or u1_quest_symb != 'x' or u1_quest_symb != 0:  # цикл: пока ответ не равен: X или 0
+
+    if u1_quest_symb.lower() == 'x':  # применяем метод lower, чтобы не устанавливать условием заглавную и прописную буквы
+        print('User 1 choose X symbol')  # при выборе х появляется сообщение
+        print('User 2 will play with 0 symbol')
+        break
+
+    elif u1_quest_symb == '0':  # при выборе 0 появляется сообщение
+        print('User 1 choose 0 symbol')
+        print('User 2 will play with X symbol')
+        break
+    else:  # пока пользователь не введет Х, x или 0
+        u1_quest_symb = input('Type what symbol will play User 1 X or 0?:')
+
+u2_symb = ''  # создаем пустую строку для Пользователя 2
+if u1_quest_symb == 'X' or u1_quest_symb == 'x':  # если Пользователь 1 выбрал Х, то Пользователь 2 будет играть нулем
+    u2_symb = '0'
+else:
+    u2_symb = 'X'  # если Пользователь 1 выбрал 0, то Пользователь 2 будет играть Х

@@ -63,3 +63,24 @@ def position_finding():
         else:
             print ('Game over') #после завершения цикла выводим на экран сообщение, что игра завершена
 position_finding()
+
+
+#################################### ФУНКЦИЯ, ОПРЕДЕЛЯЮЩАЯ ПОБЕДИТЕЛЯ ##################################################
+
+def winner():
+    if board[0] == board[1] == board[2] or board[3] == board[4] == board[5] or board[6] == board[7] == board[
+        8]:  # если горизонтальные ячейки равны
+        print(f'user with symbol {board[0]} win! (first condition)')
+        play_again()
+
+    elif board[0] == board[3] == board[6] or board[1] == board[4] == board[7] or board[2] == board[5] == board[
+        8]:  # если вертикальные ячейки равны
+        print(f'user with symbol {board[0]} win! (second condition)')
+        play_again()
+
+    elif board[0] == board[4] == board[8] or board[2] == board[4] == board[6]:  # если крест-накрест ячейки равны
+        print(f'user with symbol {board[0]} win! (third condition)')
+        play_again()
+
+
+winner()
